@@ -2,13 +2,15 @@
 Nov, 2018
 <h3>Cache Design</h3>
 <p>Read Miss: on a read miss, the cache issues a read request for the data from the lower level of the cache. Once the data is returned, it is placed in an empty way, if one exists, or data in one of the ways is evicted to create room for the new data.</p>
- The ways of the cache are numbered from {0,1,2..W-1} for a W-way cache. If an empty way exists, data is placed in lowest numbered empty way.
- Eviction is performed based on LRU policy. [Note, in this lab you are expected to emulate the exact LRU policy, not hierarchical LRU]
+<ul>
+	<li>The ways of the cache are numbered from {0,1,2..W-1} for a W-way cache. If an empty way exists, data is placed in lowest numbered empty way.</li>
+	<li>Eviction is performed based on LRU policy. [Note, in this lab you are expected to emulate the exact LRU policy, not hierarchical LRU]</li>
+</ul>
 <p>Write Hit: both the L1 and L2 caches are write-through caches.</p>
 <p>Write Miss: both the L1 and L2 caches are write no-allocate caches. On a write miss, the write request is forwarded to the lower level of the cache.</p>
 <p>Non-Inclusive: the L1 and L2 caches are non-inclusive.</p>
 
-Configuration File (config.txt):
+<h3>Configuration File (config.txt):</h3>
 The parameters of the L1 and L2 caches are specified in a configuration file. The format of the configuration file is as follows.
  Block size: Specifies the block size for the cache in bytes. This should always be a non-negative power of 2 (i.e., 1, 2, 4, 8, etc).
  Associativity: Specifies the associativity of the cache. A value of "1" implies a direct-mapped cache, while a "0" value implies fully-associative. Should always be a non-negative power of 2.
